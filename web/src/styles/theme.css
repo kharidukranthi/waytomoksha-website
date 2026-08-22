@@ -1,0 +1,15 @@
+@theme {
+  --color-background: #ffffff;
+  --color-surface: #f4f6f7;
+  --color-navy: #1b365d;
+  --color-navy-deep: #12243f;
+  --color-teal: #0f8a80;
+  --color-teal-dark: #0b6b63;
+  --color-saffron: #e07a2f;
+  --color-gold: #d4b15c;
+  --color-muted: #5c6b73;
+  --color-border: #e2e8ea;
+
+  --font-sans: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-source-serif), ui-serif, Georgia, serif;
+}

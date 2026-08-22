@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@import "../styles/theme.css";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-navy);
+  font-family: var(--font-sans);
+}
+
+a {
+  text-underline-offset: 0.15em;
+}

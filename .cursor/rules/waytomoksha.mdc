@@ -1,0 +1,169 @@
+---
+description: WayToMoksha project development rules
+alwaysApply: true
+---
+
+# WayToMoksha Project Rules
+
+You are helping build the WayToMoksha website and future platform.
+
+## Development Approach
+
+- This is an AI-first development project.
+- Prioritize fast working versions over perfect architecture.
+- Build clean, extendable code, but avoid overengineering.
+- Content should drive the design.
+- Do not create generic template-looking pages.
+- Every page should reflect the actual WayToMoksha mission, retreats, daily sessions, donations, and volunteer journey.
+
+## Development Workflow
+
+Before making significant structural, architectural, or multi-file changes:
+
+1. Explain the implementation plan.
+2. List the files that will be created, modified, moved, or deleted.
+3. Identify any assumptions.
+4. Wait for user approval.
+5. Only after approval begin implementation.
+
+Do not immediately begin coding large features.
+
+Do not move folders or restructure the repository without explicit approval.
+
+Prefer small incremental changes over one large implementation.
+
+## Repository Structure
+
+The repository is intentionally organized as a multi-project workspace.
+
+The Next.js website must remain inside the `web/` directory.
+
+Do not move the application to the repository root.
+
+The repository root is reserved for:
+- docs/
+- .cursor/
+- future projects
+
+Future projects may include:
+- volunteer-system/
+- dream-analysis/
+- community-hub/
+- shared/
+
+If a structural change is needed, explain why and wait for user approval before making it.
+
+## Current Project Scope
+
+Focus on Project 1 only:
+
+1. Public website
+2. Static / semi-static content
+3. Clear navigation
+4. Retreat information
+5. Daily sessions
+6. Donations
+7. Volunteer intake
+8. Contact information
+
+Do not build Project 2, Project 3, or Project 4 yet.
+
+Future projects:
+- Project 2: Volunteer management system
+- Project 3: Dream analysis workflow
+- Project 4: Community hub / WhatsApp consolidation
+
+Only leave placeholders or future-ready structure when useful.
+
+## Website Pages
+
+The main website should include:
+
+- Home
+- About
+- Daily Sessions
+- Retreats
+- Volunteer
+- Donate
+- Contact
+
+Retreats should support:
+- Upcoming retreats
+- Past retreats
+- Retreat detail pages
+- Future gallery support
+- Future video/testimonial support
+- Future registration support
+
+## Design Direction
+
+- Calm, spiritual, clean, and trustworthy
+- White background
+- Teal / turquoise accent
+- Saffron orange and navy blue inspired by the logo
+- Spacious layout
+- Mobile-first responsive design
+- Clear calls to action
+- Avoid clutter
+
+## Content-Driven Design Rule
+
+Before creating a layout, understand the content first.
+
+WayToMoksha is content-rich. The design should be built around:
+- Mission
+- Guided journey
+- Daily meditation schedules
+- Retreats
+- Donations
+- Volunteer onboarding
+- Community participation
+
+Do not force the content into a generic business template.
+
+## Coding Rules
+
+- Use Next.js App Router if creating a Next.js app.
+- Use Tailwind CSS for styling.
+- Use reusable components.
+- Keep pages modular.
+- Avoid putting everything into one file.
+- Prefer readable code over clever code.
+- Add comments only where they help future maintainability.
+
+## Review Rule
+
+After making changes, summarize:
+1. What files changed
+2. What was added
+3. What still needs manual review
+4. Any assumptions made
+
+## Repository Structure
+
+The repository is intentionally organized as a multi-project workspace.
+
+The Next.js website MUST remain inside the `web/` directory.
+
+Do not move the application to the repository root.
+
+Future applications will be added alongside `web/` as sibling folders.
+
+If a structural change is needed, explain why and wait for user approval before making it.
+
+
+## Planning First
+
+Always begin by understanding the project documentation.
+
+Before writing code:
+
+- Summarize your understanding.
+- Identify ambiguities.
+- Ask clarifying questions.
+- Present an implementation plan.
+- Wait for approval.
+
+Only after approval begin implementation.
+
+Never assume architectural decisions.
