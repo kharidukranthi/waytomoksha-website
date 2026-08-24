@@ -52,8 +52,8 @@ export default function DailySessionsPage() {
         <h2 className="font-serif text-3xl text-navy">Community</h2>
         <p className="leading-relaxed text-navy">
           {whatsappCommunity.label} continues to support conversation among
-          participants. A public community link and QR code will be added here
-          when they are confirmed.
+          participants. A QR code will be generated later from the official
+          invite link.
         </p>
         <div className="rounded-xl border border-dashed border-border bg-surface px-4 py-6 text-sm text-muted">
           WhatsApp community link and QR placeholder.
@@ -64,8 +64,8 @@ export default function DailySessionsPage() {
         </div>
         {whatsappCommunity.needsAdminReview ? (
           <AdminReviewNote>
-            Official WhatsApp community URL, QR code, and any public Zoom links
-            still need confirmation.
+            WhatsApp QR stays a placeholder until an official invite link is
+            available. Public Zoom links can be added later.
           </AdminReviewNote>
         ) : null}
       </section>
