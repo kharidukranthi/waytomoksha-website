@@ -17,6 +17,7 @@ export type Retreat = {
   eventDetails: string[];
   accommodationUrl?: string;
   registrationStatus: RegistrationStatus;
+  scheduleLabel?: string;
   gallery?: string[];
   testimonials?: string[];
   needsAdminReview?: boolean;
@@ -47,6 +48,39 @@ export const retreats: Retreat[] = [
     ],
     accommodationUrl: "https://thegrandoaks.com",
     registrationStatus: "placeholder",
+    scheduleLabel: "May 29, 2026, 5:00 PM – May 31, 2026, 9:00 PM Eastern Time",
+    needsAdminReview: true,
+  },
+  {
+    slug: "past-retreat-placeholder-1",
+    title: "",
+    status: "past",
+    startAt: "",
+    endAt: "",
+    timezone: "",
+    location: "",
+    venueName: "",
+    venueAddress: "",
+    shortDescription: "",
+    topics: [],
+    eventDetails: [],
+    registrationStatus: "none",
+    needsAdminReview: true,
+  },
+  {
+    slug: "past-retreat-placeholder-2",
+    title: "",
+    status: "past",
+    startAt: "",
+    endAt: "",
+    timezone: "",
+    location: "",
+    venueName: "",
+    venueAddress: "",
+    shortDescription: "",
+    topics: [],
+    eventDetails: [],
+    registrationStatus: "none",
     needsAdminReview: true,
   },
 ];
