@@ -12,7 +12,7 @@ export function Section({ children, id, tone = "background" }: SectionProps) {
       id={id}
       className={tone === "surface" ? "bg-surface" : "bg-background"}
     >
-      <Container className="py-16 sm:py-20">{children}</Container>
+      <Container className="py-20 sm:py-24">{children}</Container>
     </section>
   );
 }

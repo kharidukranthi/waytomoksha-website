@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { buttonClassName } from "@/components/ui/Button";
 import { volunteerInterestAreas } from "@/data/volunteer";
 
 const fieldClass =
-  "mt-1 w-full rounded-md border border-border bg-background px-3 py-2 text-navy outline-none focus:border-teal";
+  "mt-1 w-full rounded-md border border-border bg-background px-3 py-2 text-navy outline-none focus:border-teal focus-visible:ring-2 focus-visible:ring-teal/30";
 
 export function VolunteerInterestForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -106,10 +107,7 @@ export function VolunteerInterestForm() {
           className={fieldClass}
         />
       </div>
-      <button
-        type="submit"
-        className="inline-flex w-full items-center justify-center rounded-full bg-teal px-5 py-2.5 text-sm font-medium text-white hover:bg-teal-dark sm:w-auto"
-      >
+      <button type="submit" className={buttonClassName("primary", "w-full sm:w-auto")}>
         Share volunteer interest
       </button>
     </form>

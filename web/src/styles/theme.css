@@ -1,15 +1,33 @@
 @theme {
-  --color-background: #ffffff;
-  --color-surface: #f4f6f7;
-  --color-navy: #1b365d;
-  --color-navy-deep: #12243f;
+  /* Page and surfaces */
+  --color-background: #f6f0e6;
+  --color-surface: #fbf7f0;
+
+  /*
+   * Legacy token name: navy.
+   * Currently represents dark olive / ink, not blue navy.
+   * Kept so existing text-navy / border-navy classes keep working.
+   */
+  --color-navy: #2c3324;
+  --color-navy-deep: #2a3526;
+
+  --color-header: #2a3526;
+  --color-on-header: #f6f0e6;
+
+  /* WayToMoksha secondary accent — keep teal so the site is not gold-only */
   --color-teal: #0f8a80;
   --color-teal-dark: #0b6b63;
-  --color-saffron: #e07a2f;
-  --color-gold: #d4b15c;
-  --color-muted: #5c6b73;
-  --color-border: #e2e8ea;
+
+  /* Gold is the primary CTA. Saffron is remapped to gold (legacy class name). */
+  --color-gold: #c4a35a;
+  --color-gold-dark: #a8883f;
+  --color-saffron: #c4a35a;
+
+  --color-muted: #5e675c;
+  --color-border: #e6dccb;
 
   --font-sans: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-source-serif), ui-serif, Georgia, serif;
+
+  --shadow-card: 0 8px 24px rgb(44 51 36 / 0.06);
 }

@@ -14,23 +14,23 @@ export function Header() {
   const donateItem = navigation.find((item) => item.emphasize);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
+    <header className="sticky top-0 z-40 bg-header text-on-header">
       <Container className="flex items-center justify-between gap-4 py-4">
-        <BrandMark />
+        <BrandMark tone="onHeader" />
         <Navigation pathname={pathname} variant="header" />
 
         <div className="flex items-center gap-3 lg:hidden">
           {donateItem ? (
             <Link
               href={donateItem.href}
-              className="rounded-full bg-saffron px-4 py-2 text-sm font-medium text-white"
+              className="inline-flex min-h-11 items-center rounded-full bg-gold px-4 py-2 text-sm font-medium text-navy hover:bg-gold-dark"
             >
               {donateItem.label}
             </Link>
           ) : null}
           <button
             type="button"
-            className="rounded-md border border-border px-3 py-2 text-sm text-navy"
+            className="rounded-md border border-on-header/30 px-3 py-2 text-sm text-on-header"
             aria-expanded={isOpen}
             aria-controls="mobile-navigation"
             onClick={() => setIsOpen((open) => !open)}
@@ -41,7 +41,7 @@ export function Header() {
       </Container>
 
       {isOpen ? (
-        <div className="border-t border-border bg-background lg:hidden">
+        <div className="border-t border-on-header/20 bg-header lg:hidden">
           <Container>
             <Navigation
               pathname={pathname}

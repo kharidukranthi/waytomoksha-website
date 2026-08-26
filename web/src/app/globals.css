@@ -7,10 +7,22 @@ html {
 
 body {
   background-color: var(--color-background);
+  background-image: radial-gradient(
+    ellipse 80% 50% at 50% -10%,
+    rgb(196 163 90 / 0.09),
+    transparent 60%
+  );
   color: var(--color-navy);
   font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 a {
   text-underline-offset: 0.15em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
 }

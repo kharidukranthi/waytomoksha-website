@@ -1,4 +1,5 @@
 import { AdminReviewNote } from "@/components/ui/AdminReviewNote";
+import { Card } from "@/components/ui/Card";
 import type { Session } from "@/data/sessions";
 
 type SessionCardProps = {
@@ -7,7 +8,7 @@ type SessionCardProps = {
 
 export function SessionCard({ session }: SessionCardProps) {
   return (
-    <article className="flex h-full flex-col gap-4 rounded-2xl border border-border bg-background p-6">
+    <Card className="gap-4">
       <div className="space-y-1">
         {session.language ? (
           <p className="text-sm font-medium text-teal">{session.language}</p>
@@ -33,7 +34,7 @@ export function SessionCard({ session }: SessionCardProps) {
           ) : null}
         </dl>
       ) : (
-        <div className="rounded-xl border border-dashed border-border bg-surface px-4 py-3 text-sm text-muted">
+        <div className="rounded-xl border border-dashed border-border bg-background px-4 py-3 text-sm text-muted">
           Schedule to be confirmed.
         </div>
       )}
@@ -49,7 +50,7 @@ export function SessionCard({ session }: SessionCardProps) {
         </a>
       ) : null}
 
-      <div className="rounded-xl border border-dashed border-border bg-surface px-4 py-3 text-sm text-muted">
+      <div className="rounded-xl border border-dashed border-border bg-background px-4 py-3 text-sm text-muted">
         {session.zoomUrl ? (
           <a href={session.zoomUrl} className="font-medium text-teal hover:underline">
             Join on Zoom
@@ -64,6 +65,6 @@ export function SessionCard({ session }: SessionCardProps) {
           {session.reviewNote ?? "Session details still need admin confirmation."}
         </AdminReviewNote>
       ) : null}
-    </article>
+    </Card>
   );
 }

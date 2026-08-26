@@ -6,7 +6,7 @@ export function AdminReviewNote({ children }: AdminReviewNoteProps) {
   return (
     <p
       role="note"
-      className="rounded-md border border-gold/50 bg-gold/10 px-4 py-3 text-sm text-navy"
+      className="rounded-md border border-border border-l-4 border-l-navy/40 bg-background px-4 py-3 text-sm text-muted"
     >
       Needs admin review: {children}
     </p>

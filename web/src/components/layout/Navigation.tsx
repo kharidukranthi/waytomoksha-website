@@ -46,10 +46,10 @@ export function Navigation({ pathname = "", variant, onNavigate }: NavigationPro
                   onClick={onNavigate}
                   className={`block rounded-md px-3 py-2 text-sm ${
                     item.emphasize
-                      ? "bg-saffron font-medium text-white"
+                      ? "bg-gold font-medium text-navy"
                       : isActive
-                        ? "bg-surface font-semibold text-teal"
-                        : "text-navy hover:bg-surface"
+                        ? "bg-on-header/10 font-semibold text-gold"
+                        : "text-on-header hover:bg-on-header/10"
                   }`}
                 >
                   {item.label}
@@ -72,7 +72,7 @@ export function Navigation({ pathname = "", variant, onNavigate }: NavigationPro
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-full bg-saffron px-4 py-2 text-sm font-medium text-white hover:bg-saffron/90"
+              className="rounded-full bg-gold px-4 py-2 text-sm font-medium text-navy hover:bg-gold-dark"
             >
               {item.label}
             </Link>
@@ -84,7 +84,9 @@ export function Navigation({ pathname = "", variant, onNavigate }: NavigationPro
             key={item.href}
             href={item.href}
             className={`text-sm ${
-              isActive ? "font-semibold text-teal" : "text-navy hover:text-teal"
+              isActive
+                ? "font-semibold text-gold"
+                : "text-on-header hover:text-gold"
             }`}
           >
             {item.label}
