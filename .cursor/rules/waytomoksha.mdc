@@ -167,3 +167,47 @@ Before writing code:
 Only after approval begin implementation.
 
 Never assume architectural decisions.
+
+## Content Strategy
+
+During initial development, prioritize application structure over finalized content.
+
+When official content is unavailable:
+
+- Use meaningful placeholders.
+- Add AdminReviewNote where appropriate.
+- Never invent organizational facts.
+- Build layouts that are ready for future content.
+
+Content refinement will occur after the complete website skeleton has been implemented.
+
+
+
+## Project Philosophy
+
+The primary goal is to build a maintainable, reusable, production-quality platform.
+
+Priority order:
+
+1. Correct architecture
+2. Good user experience
+3. Responsive design
+4. Reusable components
+5. Accurate content
+6. Visual polish
+
+Never sacrifice architecture because content is incomplete.
+
+When content is unavailable:
+
+- Use placeholders.
+- Add AdminReviewNote.
+- Continue implementation.
+
+## Design Reference
+
+For Checkpoint 5A and 5B, use docs/DESIGN_REFERENCE.md as the source of truth for visual inspiration.
+
+Do not use generic web search for design inspiration unless explicitly approved.
+
+Do not copy Kalya Ventures content, structure, or branding. Use it only as visual inspiration.
