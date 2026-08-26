@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
+import { SectionHeading } from "@/components/layout/SectionHeading";
 import { AdminReviewNote } from "@/components/ui/AdminReviewNote";
+import { Card } from "@/components/ui/Card";
+import { PlaceholderPanel } from "@/components/ui/PlaceholderPanel";
 import { organization } from "@/data/organization";
 import { whatsappCommunity } from "@/data/sessions";
 
@@ -14,43 +17,46 @@ export default function ContactPage() {
       title="Contact"
       intro="Reach WayToMoksha by email or phone. Official details are listed here so they are easy to find in one trusted place."
     >
-      <section className="max-w-3xl space-y-4">
-        <h2 className="font-serif text-3xl text-navy">Contact details</h2>
-        <dl className="space-y-4 text-navy">
-          <div>
-            <dt className="text-sm font-medium text-teal">Email</dt>
-            <dd>
-              <a href={`mailto:${organization.email}`} className="hover:text-teal">
+      <section className="space-y-4">
+        <SectionHeading title="Contact details" />
+        <ul className="grid gap-4 md:grid-cols-3">
+          <li>
+            <Card className="gap-2">
+              <p className="text-sm font-medium text-teal">Email</p>
+              <a href={`mailto:${organization.email}`} className="text-teal hover:underline">
                 {organization.email}
               </a>
-            </dd>
-          </div>
-          <div>
-            <dt className="text-sm font-medium text-teal">Phone</dt>
-            <dd>
-              <a href={`tel:${organization.phone}`} className="hover:text-teal">
+            </Card>
+          </li>
+          <li>
+            <Card className="gap-2">
+              <p className="text-sm font-medium text-teal">Phone</p>
+              <a href={`tel:${organization.phone}`} className="text-teal hover:underline">
                 {organization.phone}
               </a>
-            </dd>
-          </div>
-          <div>
-            <dt className="text-sm font-medium text-teal">Organization</dt>
-            <dd>{organization.legalName}</dd>
-            <dd className="mt-1 text-sm text-muted">{organization.taxStatus}</dd>
-          </div>
-        </dl>
+            </Card>
+          </li>
+          <li>
+            <Card className="gap-2">
+              <p className="text-sm font-medium text-teal">Organization</p>
+              <p className="text-navy">{organization.legalName}</p>
+              <p className="text-sm text-muted">{organization.taxStatus}</p>
+            </Card>
+          </li>
+        </ul>
       </section>
 
       <section className="max-w-3xl space-y-4">
-        <h2 className="font-serif text-3xl text-navy">Contact form</h2>
-        <p className="leading-relaxed text-muted">
-          A public contact form may be added later. Messages are not submitted
-          from this page yet.
-        </p>
-        <div className="rounded-xl border border-dashed border-border bg-surface px-4 py-6 text-sm text-muted">
+        <SectionHeading title="Contact form">
+          <p className="leading-relaxed text-muted">
+            A public contact form may be added later. Messages are not submitted
+            from this page yet.
+          </p>
+        </SectionHeading>
+        <PlaceholderPanel>
           Contact form placeholder. There is no send button here so it cannot
           look like a live inbox.
-        </div>
+        </PlaceholderPanel>
         <AdminReviewNote>
           Please confirm whether a public contact form should send email later,
           and to which address.
@@ -58,14 +64,13 @@ export default function ContactPage() {
       </section>
 
       <section className="max-w-3xl space-y-4">
-        <h2 className="font-serif text-3xl text-navy">{whatsappCommunity.label}</h2>
-        <p className="leading-relaxed text-navy">
-          WhatsApp continues to support community communication. A QR code will
-          be generated later from the official invite link.
-        </p>
-        <div className="rounded-xl border border-dashed border-border bg-surface px-4 py-6 text-sm text-muted">
-          WhatsApp community link and QR placeholder.
-        </div>
+        <SectionHeading title={whatsappCommunity.label}>
+          <p className="leading-relaxed text-navy">
+            WhatsApp continues to support community communication. A QR code will
+            be generated later from the official invite link.
+          </p>
+        </SectionHeading>
+        <PlaceholderPanel>WhatsApp community link and QR placeholder.</PlaceholderPanel>
         {whatsappCommunity.needsAdminReview ? (
           <AdminReviewNote>
             WhatsApp QR stays a placeholder until an official invite link is

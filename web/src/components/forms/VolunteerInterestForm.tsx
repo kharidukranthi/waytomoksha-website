@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { buttonClassName } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
 import { volunteerInterestAreas } from "@/data/volunteer";
 
 const fieldClass =
@@ -17,18 +18,19 @@ export function VolunteerInterestForm() {
 
   if (submitted) {
     return (
-      <div className="space-y-3 rounded-2xl border border-border bg-surface p-6">
+      <Card className="gap-3">
         <h3 className="font-serif text-2xl text-navy">Thank you</h3>
         <p className="leading-relaxed text-navy">
           Your interest was recorded on this page only. A current volunteer will
           follow up. This form does not send a message or create an account yet.
         </p>
-      </div>
+      </Card>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <Card className="gap-5">
+      <form onSubmit={handleSubmit} className="space-y-5">
       <div>
         <label htmlFor="volunteer-name" className="text-sm font-medium text-navy">
           Name
@@ -107,9 +109,10 @@ export function VolunteerInterestForm() {
           className={fieldClass}
         />
       </div>
-      <button type="submit" className={buttonClassName("primary", "w-full sm:w-auto")}>
-        Share volunteer interest
-      </button>
-    </form>
+        <button type="submit" className={buttonClassName("primary", "w-full sm:w-auto")}>
+          Share volunteer interest
+        </button>
+      </form>
+    </Card>
   );
 }

@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PageShell } from "@/components/layout/PageShell";
+import { SectionHeading } from "@/components/layout/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { AdminReviewNote } from "@/components/ui/AdminReviewNote";
+import { Card } from "@/components/ui/Card";
+import { PlaceholderPanel } from "@/components/ui/PlaceholderPanel";
 import {
   getRetreatBySlug,
   getRetreatScheduleLabel,
@@ -43,7 +46,7 @@ export default async function RetreatDetailPage({ params }: RetreatDetailPagePro
 
   return (
     <PageShell title={retreat.title} intro={retreat.shortDescription}>
-      <section className="max-w-3xl space-y-3">
+      <Card className="max-w-3xl gap-3">
         <p className="font-medium text-teal">{scheduleLabel}</p>
         <p className="text-navy">
           {retreat.venueName}
@@ -60,36 +63,40 @@ export default async function RetreatDetailPage({ params }: RetreatDetailPagePro
             Venue website
           </a>
         ) : null}
-      </section>
+      </Card>
 
-      {retreat.topics.length > 0 ? (
-        <section className="max-w-3xl space-y-3">
-          <h2 className="font-serif text-3xl text-navy">Topics</h2>
-          <ul className="list-disc space-y-2 pl-5 text-navy">
-            {retreat.topics.map((topic) => (
-              <li key={topic}>{topic}</li>
-            ))}
-          </ul>
-        </section>
-      ) : null}
-
-      {retreat.eventDetails.length > 0 ? (
-        <section className="max-w-3xl space-y-3">
-          <h2 className="font-serif text-3xl text-navy">Event details</h2>
-          <ul className="list-disc space-y-2 pl-5 text-navy">
-            {retreat.eventDetails.map((detail) => (
-              <li key={detail}>{detail}</li>
-            ))}
-          </ul>
+      {retreat.topics.length > 0 || retreat.eventDetails.length > 0 ? (
+        <section className="grid gap-6 md:grid-cols-2">
+          {retreat.topics.length > 0 ? (
+            <Card className="gap-3">
+              <h2 className="font-serif text-2xl text-navy">Topics</h2>
+              <ul className="list-disc space-y-2 pl-5 text-navy">
+                {retreat.topics.map((topic) => (
+                  <li key={topic}>{topic}</li>
+                ))}
+              </ul>
+            </Card>
+          ) : null}
+          {retreat.eventDetails.length > 0 ? (
+            <Card className="gap-3">
+              <h2 className="font-serif text-2xl text-navy">Event details</h2>
+              <ul className="list-disc space-y-2 pl-5 text-navy">
+                {retreat.eventDetails.map((detail) => (
+                  <li key={detail}>{detail}</li>
+                ))}
+              </ul>
+            </Card>
+          ) : null}
         </section>
       ) : null}
 
       <section className="max-w-3xl space-y-4">
-        <h2 className="font-serif text-3xl text-navy">Stay and meals</h2>
-        <p className="leading-relaxed text-navy">
-          Meals are included with a ticket. Accommodation is listed through the
-          venue.
-        </p>
+        <SectionHeading title="Stay and meals">
+          <p className="leading-relaxed text-navy">
+            Meals are included with a ticket. Accommodation is listed through the
+            venue.
+          </p>
+        </SectionHeading>
         {retreat.accommodationUrl ? (
           <a
             href={retreat.accommodationUrl}
@@ -107,11 +114,12 @@ export default async function RetreatDetailPage({ params }: RetreatDetailPagePro
       </section>
 
       <section className="max-w-3xl space-y-4">
-        <h2 className="font-serif text-3xl text-navy">Registration</h2>
-        <p className="leading-relaxed text-muted">
-          Registration options such as full price, pay what you can, and sponsor
-          tiers will appear here. Registration is not open on this website yet.
-        </p>
+        <SectionHeading title="Registration">
+          <p className="leading-relaxed text-muted">
+            Registration options such as full price, pay what you can, and sponsor
+            tiers will appear here. Registration is not open on this website yet.
+          </p>
+        </SectionHeading>
         <Button variant="secondary">Register</Button>
         <p className="text-sm text-muted">
           An optional donation may be offered during registration later. General
@@ -124,35 +132,33 @@ export default async function RetreatDetailPage({ params }: RetreatDetailPagePro
       </section>
 
       <section className="max-w-3xl space-y-4">
-        <h2 className="font-serif text-3xl text-navy">Schedule</h2>
-        <div className="rounded-xl border border-dashed border-border bg-surface px-4 py-6 text-sm text-muted">
+        <SectionHeading title="Schedule" />
+        <PlaceholderPanel>
           An hourly retreat schedule will be added when it is confirmed.
-        </div>
+        </PlaceholderPanel>
       </section>
 
       <section className="max-w-3xl space-y-4">
-        <h2 className="font-serif text-3xl text-navy">Gallery</h2>
-        <div className="rounded-xl border border-dashed border-border bg-surface px-4 py-6 text-sm text-muted">
-          Retreat photos will appear here later.
-        </div>
+        <SectionHeading title="Gallery" />
+        <PlaceholderPanel>Retreat photos will appear here later.</PlaceholderPanel>
         <AdminReviewNote>Gallery images have not been provided.</AdminReviewNote>
       </section>
 
       <section className="max-w-3xl space-y-4">
-        <h2 className="font-serif text-3xl text-navy">Testimonials</h2>
-        <div className="rounded-xl border border-dashed border-border bg-surface px-4 py-6 text-sm text-muted">
+        <SectionHeading title="Testimonials" />
+        <PlaceholderPanel>
           Testimonial videos and quotes will appear here later.
-        </div>
+        </PlaceholderPanel>
         <AdminReviewNote>
           Testimonial videos have not been provided. Do not add invented quotes.
         </AdminReviewNote>
       </section>
 
       <section className="max-w-3xl space-y-4">
-        <h2 className="font-serif text-3xl text-navy">FAQ</h2>
-        <div className="rounded-xl border border-dashed border-border bg-surface px-4 py-6 text-sm text-muted">
+        <SectionHeading title="FAQ" />
+        <PlaceholderPanel>
           Questions and answers about this retreat will be added here.
-        </div>
+        </PlaceholderPanel>
         <AdminReviewNote>
           Retreat FAQ copy has not been provided yet.
         </AdminReviewNote>
