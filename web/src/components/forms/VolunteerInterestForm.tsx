@@ -35,39 +35,77 @@ export function VolunteerInterestForm() {
         <label htmlFor="volunteer-name" className="text-sm font-medium text-navy">
           Name
         </label>
-        <input id="volunteer-name" name="name" type="text" required className={fieldClass} />
+        <input
+          id="volunteer-name"
+          name="name"
+          type="text"
+          autoComplete="name"
+          required
+          className={fieldClass}
+        />
       </div>
       <div>
         <label htmlFor="volunteer-email" className="text-sm font-medium text-navy">
           Email
         </label>
-        <input id="volunteer-email" name="email" type="email" required className={fieldClass} />
+        <input
+          id="volunteer-email"
+          name="email"
+          type="email"
+          autoComplete="email"
+          required
+          className={fieldClass}
+        />
       </div>
       <div>
         <label htmlFor="volunteer-phone" className="text-sm font-medium text-navy">
           Phone
         </label>
-        <input id="volunteer-phone" name="phone" type="tel" className={fieldClass} />
+        <input
+          id="volunteer-phone"
+          name="phone"
+          type="tel"
+          autoComplete="tel"
+          className={fieldClass}
+        />
       </div>
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="volunteer-country" className="text-sm font-medium text-navy">
             Country
           </label>
-          <input id="volunteer-country" name="country" type="text" className={fieldClass} />
+          <input
+            id="volunteer-country"
+            name="country"
+            type="text"
+            autoComplete="country-name"
+            className={fieldClass}
+          />
         </div>
         <div>
           <label htmlFor="volunteer-state" className="text-sm font-medium text-navy">
             State / region
           </label>
-          <input id="volunteer-state" name="state" type="text" className={fieldClass} />
+          <input
+            id="volunteer-state"
+            name="state"
+            type="text"
+            autoComplete="address-level1"
+            className={fieldClass}
+          />
         </div>
       </div>
       <div>
         <label htmlFor="volunteer-language" className="text-sm font-medium text-navy">
           Preferred language
         </label>
-        <input id="volunteer-language" name="preferredLanguage" type="text" className={fieldClass} />
+        <input
+          id="volunteer-language"
+          name="preferredLanguage"
+          type="text"
+          autoComplete="language"
+          className={fieldClass}
+        />
       </div>
       <fieldset>
         <legend className="text-sm font-medium text-navy">Areas of interest</legend>

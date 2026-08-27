@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { SectionHeading } from "@/components/layout/SectionHeading";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { AdminReviewNote } from "@/components/ui/AdminReviewNote";
 import { Card } from "@/components/ui/Card";
 import { PlaceholderPanel } from "@/components/ui/PlaceholderPanel";
 import { organization } from "@/data/organization";
 import { whatsappCommunity } from "@/data/sessions";
+import { breadcrumbJsonLd, pageMetadata, pageSeo } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact",
-};
+export const metadata: Metadata = pageMetadata(pageSeo.contact);
 
 export default function ContactPage() {
   return (
@@ -17,6 +17,12 @@ export default function ContactPage() {
       title="Contact"
       intro="Reach WayToMoksha by email or phone. Official details are listed here so they are easy to find in one trusted place."
     >
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ])}
+      />
       <section className="space-y-4">
         <SectionHeading title="Contact details" />
         <ul className="grid gap-4 md:grid-cols-3">

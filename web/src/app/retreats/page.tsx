@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { RetreatCard } from "@/components/cards/RetreatCard";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { getPastRetreats, getUpcomingRetreats } from "@/lib/content";
+import { breadcrumbJsonLd, pageMetadata, pageSeo } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Retreats",
-};
+export const metadata: Metadata = pageMetadata(pageSeo.retreats);
 
 export default function RetreatsPage() {
   const upcomingRetreats = getUpcomingRetreats();
@@ -21,6 +21,12 @@ export default function RetreatsPage() {
       title="Retreats"
       intro="Upcoming retreats are listed first. Past retreat memories will be added as details are confirmed."
     >
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Retreats", path: "/retreats" },
+        ])}
+      />
       <section className="space-y-6">
         <SectionHeading title="Upcoming retreats" />
         <ul className={upcomingGridClass}>

@@ -2,15 +2,15 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { DonationPurposeCard } from "@/components/cards/DonationPurposeCard";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { AdminReviewNote } from "@/components/ui/AdminReviewNote";
 import { Card } from "@/components/ui/Card";
 import { PlaceholderPanel } from "@/components/ui/PlaceholderPanel";
 import { donationPurposes, donationTiers } from "@/data/donations";
 import { organization } from "@/data/organization";
+import { breadcrumbJsonLd, pageMetadata, pageSeo } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Donate",
-};
+export const metadata: Metadata = pageMetadata(pageSeo.donate);
 
 export default function DonatePage() {
   return (
@@ -18,6 +18,12 @@ export default function DonatePage() {
       title="Donate"
       intro="Donations support the WayToMoksha mission and are separate from retreat registration fees."
     >
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Donate", path: "/donate" },
+        ])}
+      />
       <section className="max-w-3xl space-y-4">
         <SectionHeading title={organization.donationHeadline}>
           <p className="leading-relaxed text-navy">{organization.donationDescription}</p>

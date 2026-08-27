@@ -1,34 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# WayToMoksha website
 
-## Getting Started
+The public Next.js site lives in this `web/` directory. Keep it here; do not move the app to the repository root.
 
-First, run the development server:
+## Local development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production preview
 
-## Learn More
+```bash
+npm run lint
+npm run build
+npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+`npm run start` serves the production build at [http://localhost:3000](http://localhost:3000).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Environment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Copy `.env.example` to `.env.local` when you need local overrides.
+
+- `NEXT_PUBLIC_SITE_URL` — canonical origin for metadata, sitemap, and robots. Default in code is `https://waytomoksha.org`.
+- `NEXT_PUBLIC_ALLOW_INDEXING` — must stay `false` for the first preview. Production indexing must only be enabled after admin review, then set this to `true` when connecting the real domain.
+
+Admin review notes stay visible on the preview so content owners can see what still needs confirmation.
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Import the GitHub repository.
+2. Set **Root Directory** to `web`.
+3. Leave `NEXT_PUBLIC_ALLOW_INDEXING` unset or `false` for the first preview URL.
+4. Optionally set `NEXT_PUBLIC_SITE_URL` to the preview URL if you need matching canonicals during review.
+5. Do not connect `waytomoksha.org` until admins have reviewed the preview.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The temporary favicon and Open Graph image are placeholders until an official logo is provided.

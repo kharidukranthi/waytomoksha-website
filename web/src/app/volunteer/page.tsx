@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { VolunteerInterestForm } from "@/components/forms/VolunteerInterestForm";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { AdminReviewNote } from "@/components/ui/AdminReviewNote";
 import { Card } from "@/components/ui/Card";
+import { breadcrumbJsonLd, pageMetadata, pageSeo } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Volunteer",
-};
+export const metadata: Metadata = pageMetadata(pageSeo.volunteer);
 
 export default function VolunteerPage() {
   return (
@@ -15,6 +15,12 @@ export default function VolunteerPage() {
       title="Volunteer"
       intro="Sharing interest is only the first step. A current volunteer will follow up, then human onboarding happens, and a role is assigned later."
     >
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Volunteer", path: "/volunteer" },
+        ])}
+      />
       <section className="grid gap-6 md:grid-cols-2">
         <Card className="gap-4">
           <h2 className="font-serif text-2xl text-navy">Why volunteer</h2>

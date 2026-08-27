@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { DonatePreview } from "@/components/sections/DonatePreview";
 import { GuidedJourney } from "@/components/sections/GuidedJourney";
 import { Hero } from "@/components/sections/Hero";
@@ -6,10 +7,13 @@ import { RetreatsPreview } from "@/components/sections/RetreatsPreview";
 import { SessionsPreview } from "@/components/sections/SessionsPreview";
 import { VolunteerPreview } from "@/components/sections/VolunteerPreview";
 import { Section } from "@/components/layout/Section";
+import { pageMetadata, pageSeo } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata(pageSeo.home);
 
 export default function HomePage() {
   return (
-    <main className="flex-1">
+    <main id="main-content" className="flex-1">
       <Hero />
       <MissionSummary />
       <Section>

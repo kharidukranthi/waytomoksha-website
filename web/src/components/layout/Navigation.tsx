@@ -22,7 +22,10 @@ export function Navigation({ pathname = "", variant, onNavigate }: NavigationPro
         <ul className="space-y-2">
           {navigation.map((item) => (
             <li key={item.href}>
-              <Link href={item.href} className="text-sm text-muted hover:text-teal">
+              <Link
+                href={item.href}
+                className="inline-flex min-h-11 items-center text-sm text-muted hover:text-teal"
+              >
                 {item.label}
               </Link>
             </li>
@@ -44,7 +47,8 @@ export function Navigation({ pathname = "", variant, onNavigate }: NavigationPro
                 <Link
                   href={item.href}
                   onClick={onNavigate}
-                  className={`block rounded-md px-3 py-2 text-sm ${
+                  aria-current={isActive ? "page" : undefined}
+                  className={`flex min-h-11 items-center rounded-md px-3 py-2 text-sm ${
                     item.emphasize
                       ? "bg-gold font-medium text-navy"
                       : isActive
@@ -72,7 +76,8 @@ export function Navigation({ pathname = "", variant, onNavigate }: NavigationPro
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-full bg-gold px-4 py-2 text-sm font-medium text-navy hover:bg-gold-dark"
+              aria-current={isActive ? "page" : undefined}
+              className="inline-flex min-h-11 items-center rounded-full bg-gold px-4 py-2 text-sm font-medium text-navy hover:bg-gold-dark"
             >
               {item.label}
             </Link>
@@ -83,7 +88,8 @@ export function Navigation({ pathname = "", variant, onNavigate }: NavigationPro
           <Link
             key={item.href}
             href={item.href}
-            className={`text-sm ${
+            aria-current={isActive ? "page" : undefined}
+            className={`inline-flex min-h-11 items-center text-sm ${
               isActive
                 ? "font-semibold text-gold"
                 : "text-on-header hover:text-gold"

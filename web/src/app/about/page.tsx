@@ -2,17 +2,23 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { GuidedJourney } from "@/components/sections/GuidedJourney";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Card } from "@/components/ui/Card";
 import { organization } from "@/data/organization";
 import { websitePathHelps } from "@/data/journey";
+import { breadcrumbJsonLd, pageMetadata, pageSeo } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About",
-};
+export const metadata: Metadata = pageMetadata(pageSeo.about);
 
 export default function AboutPage() {
   return (
     <PageShell title="About" intro={organization.aboutBelief}>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ])}
+      />
       <section>
         <SectionHeading title="Who we are">
           <p className="leading-relaxed text-navy">{organization.about}</p>

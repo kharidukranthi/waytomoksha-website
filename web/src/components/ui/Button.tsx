@@ -29,9 +29,9 @@ export function Button({
 
   if (!href) {
     return (
-      <span aria-disabled="true" className={`${classes} cursor-not-allowed opacity-70`}>
+      <button type="button" disabled className={`${classes} cursor-not-allowed opacity-70`}>
         {children}
-      </span>
+      </button>
     );
   }
 

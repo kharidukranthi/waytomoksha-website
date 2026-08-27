@@ -8,7 +8,7 @@ type PageShellProps = {
 
 export function PageShell({ title, intro, children }: PageShellProps) {
   return (
-    <main className="flex-1">
+    <main id="main-content" className="flex-1" tabIndex={-1}>
       <div className="py-16 sm:py-20">
         <Container>
           <header className="mb-12 max-w-3xl space-y-5">

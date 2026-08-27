@@ -15,6 +15,10 @@ export type Organization = {
   zelleEmail: string;
   donationHeadline: string;
   donationDescription: string;
+  brandName: string;
+  websiteUrl: string;
+  alternateNames: string[];
+  sameAs: string[];
 };
 
 export const organization: Organization = {
@@ -42,4 +46,18 @@ export const organization: Organization = {
   donationHeadline: "Pay Monthly Donation",
   donationDescription:
     "Make a secure online donation using Zelle and receive a tax-deductible receipt.",
+  brandName: "WayToMoksha",
+  websiteUrl: "https://waytomoksha.org",
+  alternateNames: [
+    "WayToMoksha",
+    "Way To Moksha",
+    "Waytomoksha",
+    "Way to Moksha",
+    "Way To Moksha FOUNDATION INC",
+    "WayToMoksha.org",
+  ],
+  sameAs: [
+    "https://www.youtube.com/@WayToMokshaEnglish",
+    "https://www.youtube.com/@WaytomokshaTelugu",
+  ],
 };

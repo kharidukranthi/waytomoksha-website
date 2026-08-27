@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageShell } from "@/components/layout/PageShell";
 import { SectionHeading } from "@/components/layout/SectionHeading";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { Button } from "@/components/ui/Button";
 import { AdminReviewNote } from "@/components/ui/AdminReviewNote";
 import { Card } from "@/components/ui/Card";
@@ -12,6 +14,7 @@ import {
   getRetreatsWithDetailPages,
   retreatHasDetailPage,
 } from "@/lib/content";
+import { breadcrumbJsonLd, pageMetadata, retreatEventJsonLd } from "@/lib/seo";
 
 type RetreatDetailPageProps = {
   params: Promise<{ slug: string }>;
@@ -28,10 +31,19 @@ export async function generateMetadata({
   const retreat = getRetreatBySlug(slug);
 
   if (!retreat) {
-    return { title: "Retreat" };
+    return pageMetadata({
+      title: "Retreat | WayToMoksha",
+      description: "WayToMoksha retreat information.",
+      path: `/retreats/${slug}`,
+    });
   }
 
-  return { title: retreat.title };
+  return pageMetadata({
+    title: "Astral Healing Retreat in Florida | WayToMoksha",
+    description:
+      "Join WayToMoksha for a 2-day Astral Healing retreat for Wisdom Through Dreams in Central Florida at The Grand Oaks Resort.",
+    path: `/retreats/${retreat.slug}`,
+  });
 }
 
 export default async function RetreatDetailPage({ params }: RetreatDetailPageProps) {
@@ -46,6 +58,45 @@ export default async function RetreatDetailPage({ params }: RetreatDetailPagePro
 
   return (
     <PageShell title={retreat.title} intro={retreat.shortDescription}>
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Retreats", path: "/retreats" },
+          { name: retreat.title, path: `/retreats/${retreat.slug}` },
+        ])}
+      />
+      {retreat.startAt && retreat.endAt ? (
+        <JsonLd
+          data={retreatEventJsonLd({
+            title: retreat.title,
+            slug: retreat.slug,
+            shortDescription: retreat.shortDescription,
+            startAt: retreat.startAt,
+            endAt: retreat.endAt,
+            venueName: retreat.venueName,
+            venueAddress: retreat.venueAddress,
+          })}
+        />
+      ) : null}
+      <nav aria-label="Breadcrumb" className="max-w-3xl text-sm text-muted">
+        <ol className="flex flex-wrap items-center gap-2">
+          <li>
+            <Link href="/" className="text-teal hover:underline">
+              Home
+            </Link>
+          </li>
+          <li aria-hidden="true">/</li>
+          <li>
+            <Link href="/retreats" className="text-teal hover:underline">
+              Retreats
+            </Link>
+          </li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page" className="text-navy">
+            {retreat.title}
+          </li>
+        </ol>
+      </nav>
       <Card className="max-w-3xl gap-3">
         <p className="font-medium text-teal">{scheduleLabel}</p>
         <p className="text-navy">

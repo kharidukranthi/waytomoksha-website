@@ -30,7 +30,8 @@ export function Header() {
           ) : null}
           <button
             type="button"
-            className="rounded-md border border-on-header/30 px-3 py-2 text-sm text-on-header"
+            className="inline-flex min-h-11 items-center rounded-md border border-on-header/30 px-3 py-2 text-sm text-on-header"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
             aria-controls="mobile-navigation"
             onClick={() => setIsOpen((open) => !open)}

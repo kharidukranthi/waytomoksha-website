@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { PageShell } from "@/components/layout/PageShell";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { SessionCard } from "@/components/cards/SessionCard";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { AdminReviewNote } from "@/components/ui/AdminReviewNote";
 import { Card } from "@/components/ui/Card";
 import { PlaceholderPanel } from "@/components/ui/PlaceholderPanel";
@@ -10,10 +11,9 @@ import {
   sessions,
   whatsappCommunity,
 } from "@/data/sessions";
+import { breadcrumbJsonLd, pageMetadata, pageSeo } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Daily Sessions",
-};
+export const metadata: Metadata = pageMetadata(pageSeo.dailySessions);
 
 export default function DailySessionsPage() {
   return (
@@ -21,6 +21,12 @@ export default function DailySessionsPage() {
       title="Daily Sessions"
       intro="WhatsApp continues to support community communication. This page gathers official session times and join links in one trusted place."
     >
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "Daily Sessions", path: "/daily-sessions" },
+        ])}
+      />
       <section>
         <SectionHeading title="How do I start?" />
         <Card className="mt-6 max-w-3xl gap-4">
