@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { getRetreatsWithDetailPages } from "@/lib/content";
 import { getSiteUrl } from "@/lib/site";
 
+export const dynamic = "force-static";
+
 const staticPaths = [
   "/",
   "/about",

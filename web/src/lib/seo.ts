@@ -75,7 +75,7 @@ export function pageMetadata({ title, description, path }: PageMetadataInput): M
       locale: "en_US",
     },
     twitter: {
-      card: "summary_large_image",
+      card: "summary",
       title,
       description,
     },
