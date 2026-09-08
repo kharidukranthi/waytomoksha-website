@@ -6,6 +6,7 @@ import { MissionSummary } from "@/components/sections/MissionSummary";
 import { RetreatsPreview } from "@/components/sections/RetreatsPreview";
 import { SessionsPreview } from "@/components/sections/SessionsPreview";
 import { VolunteerPreview } from "@/components/sections/VolunteerPreview";
+import { WebsitePurpose } from "@/components/sections/WebsitePurpose";
 import { Section } from "@/components/layout/Section";
 import { pageMetadata, pageSeo } from "@/lib/seo";
 
@@ -16,8 +17,9 @@ export default function HomePage() {
     <main id="main-content" className="flex-1">
       <Hero />
       <MissionSummary />
-      <Section>
-        <GuidedJourney preview />
+      <WebsitePurpose />
+      <Section id="guided-journey">
+        <GuidedJourney />
       </Section>
       <SessionsPreview />
       <RetreatsPreview />

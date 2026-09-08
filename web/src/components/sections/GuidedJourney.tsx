@@ -4,16 +4,10 @@ import { Card } from "@/components/ui/Card";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { guidedJourneySteps } from "@/data/journey";
 
-type GuidedJourneyProps = {
-  preview?: boolean;
-};
-
-export function GuidedJourney({ preview = false }: GuidedJourneyProps) {
-  const steps = preview ? guidedJourneySteps.slice(0, 4) : guidedJourneySteps;
-
+export function GuidedJourney() {
   return (
     <div className="space-y-8">
-      <SectionHeading title={preview ? "A guided path" : "Getting started"}>
+      <SectionHeading title="A guided path">
         <p className="leading-relaxed text-muted">
           WayToMoksha is building a clear path so people can begin with daily
           practice, then choose self-guided learning, mentorship, or dream
@@ -22,7 +16,7 @@ export function GuidedJourney({ preview = false }: GuidedJourneyProps) {
       </SectionHeading>
 
       <ol className="grid gap-4 md:grid-cols-2">
-        {steps.map((step, index) => (
+        {guidedJourneySteps.map((step, index) => (
           <li key={step.id}>
             <Card className="gap-4">
               <p className="text-sm font-medium text-teal">Step {index + 1}</p>
@@ -42,12 +36,6 @@ export function GuidedJourney({ preview = false }: GuidedJourneyProps) {
           </li>
         ))}
       </ol>
-
-      {preview ? (
-        <Button href="/about#guided-journey" variant="secondary">
-          See the full getting-started path
-        </Button>
-      ) : null}
     </div>
   );
 }

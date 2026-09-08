@@ -11,12 +11,6 @@ export const pageSeo = {
       "WayToMoksha is a non-religious, non-profit voluntary organization focused on mindful meditation, vegetarianism, inner awareness, retreats, and spiritual growth.",
     path: "/",
   },
-  about: {
-    title: "About WayToMoksha | Mission, Vision and Spiritual Journey",
-    description:
-      "Learn about WayToMoksha, a non-religious non-profit organization dedicated to mindful meditation, inner awareness, vegetarianism, dreams, spirituality, and service.",
-    path: "/about",
-  },
   dailySessions: {
     title: "Daily Meditation Sessions | WayToMoksha",
     description:
