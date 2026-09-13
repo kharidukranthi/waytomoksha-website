@@ -23,6 +23,12 @@ export const pageSeo = {
       "Explore upcoming and past WayToMoksha retreats focused on meditation, dreams, healing, spiritual growth, and community learning.",
     path: "/retreats",
   },
+  store: {
+    title: "Store | WayToMoksha",
+    description:
+      "Browse WayToMoksha spiritual support kits and items. Ordering is handled manually by the team for availability, pricing, and payment instructions.",
+    path: "/store",
+  },
   volunteer: {
     title: "Volunteer with WayToMoksha | Seva and Community Support",
     description:
