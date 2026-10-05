@@ -12,7 +12,7 @@ export function BrandMark({ href = "/", tone = "default" }: BrandMarkProps) {
       {/* Temporary placeholder until the official logo is provided. */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/brand/placeholder-logo.png"
+        src="/brand/waytomoksha-logo-v2.png"
         alt=""
         aria-hidden="true"
         className="h-8 w-auto sm:h-10"
