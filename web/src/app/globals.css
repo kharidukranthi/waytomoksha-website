@@ -26,3 +26,84 @@ a {
   outline: 2px solid var(--color-gold);
   outline-offset: 2px;
 }
+
+.logo-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: var(--color-background);
+  animation: logo-intro-overlay 2.4s ease forwards;
+}
+
+.logo-intro-glow {
+  position: absolute;
+  width: min(22rem, 70vw);
+  height: min(22rem, 70vw);
+  border-radius: 9999px;
+  background: radial-gradient(
+    circle,
+    rgb(196 163 90 / 0.16) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.logo-intro-mark {
+  position: relative;
+  z-index: 1;
+  width: min(72vw, 16rem);
+  max-height: 40vh;
+  height: auto;
+  animation: logo-intro-mark 2.4s ease forwards;
+}
+
+.logo-intro-skip {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 2;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 0;
+  background: transparent;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+@keyframes logo-intro-overlay {
+  0%,
+  58.3% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes logo-intro-mark {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  29.2% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  58.3% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0.2;
+    transform: translate(-38vw, -42vh) scale(0.22);
+  }
+}
